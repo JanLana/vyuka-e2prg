@@ -1,8 +1,9 @@
 package cz.gyarab.e2prg.s2;
 
-public class Pes extends Zvire implements DelaZvuk {
+public class Vrtacka extends ElSpotrebic {
+    @Override
     public String delaZvuk() {
-        return "HAF";
+        return "vrrrrr";
     }
 
     @Override
