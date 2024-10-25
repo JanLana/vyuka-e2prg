@@ -1,5 +1,7 @@
 package cz.gyarab.e2prg.s1;
 
+import org.apache.commons.lang3.RandomStringUtils;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -49,7 +51,13 @@ public class Clovek {
         */
 
 
-        Clovek arr[] = {
+        Clovek arr[] = inicializaceRandom();
+        bubbleSort(arr);
+        vypis(arr);
+    }
+
+    private static Clovek[] inicializace() {
+        return new Clovek[]{
                 new Clovek("a", "A"),
                 new Clovek("e", "E"),
                 new Clovek("f", "F"),
@@ -57,7 +65,29 @@ public class Clovek {
                 new Clovek("x", "X"),
                 new Clovek("c", "C")
         };
+    }
 
+
+    private static Clovek[] inicializaceRandom() {
+        Clovek arr[] = new Clovek[100];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = new Clovek(
+                    RandomStringUtils.random(10, true, false),
+                    RandomStringUtils.random(10, true, false)
+            );
+
+        }
+        return arr;
+    }
+
+
+    private static void vypis(Clovek[] arr) {
+        for (Clovek c: arr) {
+            System.out.println(c);
+        }
+    }
+
+    private static void bubbleSort(Clovek[] arr) {
         boolean potrebujiTridit = true;
 
         while(potrebujiTridit) {
@@ -69,12 +99,6 @@ public class Clovek {
                     potrebujiTridit = true;
                 }
             }
-        }
-
-
-        //vypsat
-        for (Clovek c: arr) {
-            System.out.println(c);
         }
     }
 }
