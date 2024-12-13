@@ -3,10 +3,18 @@ package cz.gyarab.e2prg.s1;
 import java.util.Arrays;
 
 public class TrideniSlevanim {
+    static int pocitadlo;
+
     public static void main(String[] args) {
         int[] arr = { 5,2,13,1,8,7,3,4 };
+        arr = new int[128];
 
+
+        pocitadlo = 0;
         int[] vysledek = mergeSort(arr);
+
+        System.out.println("velikost: " + arr.length);
+        System.out.println("merge volan: " + pocitadlo);
 
         Arrays.toString(vysledek);
     }
@@ -42,6 +50,8 @@ public class TrideniSlevanim {
     }
 
     public static int[] merge(int[] leva, int[] prava) {
+        pocitadlo = pocitadlo + 1;
+
         int i = 0, j = 0, k = 0;
         int[] vysledek = new int[leva.length + prava.length];
 
@@ -51,7 +61,7 @@ public class TrideniSlevanim {
             System.out.println("leva " + Arrays.toString(leva));
             System.out.println("prava: " + Arrays.toString(prava));
 
-            if (leva[i] <= prava[j]) {
+            if (leva[i] < prava[j]) {
                 vysledek[k] = leva[i];
                 k += 1;
                 i += 1;
