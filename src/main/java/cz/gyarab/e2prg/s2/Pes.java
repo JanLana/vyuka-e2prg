@@ -1,6 +1,6 @@
 package cz.gyarab.e2prg.s2;
 
-public class Pes extends Zvire implements DelaZvuk {
+public class Pes extends ZvireOld implements DelaZvuk {
     public String delaZvuk() {
         return "HAF";
     }
