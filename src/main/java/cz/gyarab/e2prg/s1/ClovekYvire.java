@@ -1,6 +1,6 @@
 package cz.gyarab.e2prg.s1;
 
-public class ClovekYvire extends Zvire {
+public class ClovekYvire extends ZvireOld {
     public ClovekYvire() {
         rychlostBehu = 30;
     }

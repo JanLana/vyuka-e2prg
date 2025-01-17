@@ -1,16 +1,33 @@
 package cz.gyarab.e2prg.s1;
 
-public class Zvire {
-    public String delaZvuk() {
-        return null;
-    }
-    public int rychlostBehu = 0;
-    //public int rychlostBehu() { return 0; }
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import lombok.Getter;
+import lombok.ToString;
 
-    public void vypisSe() {
-        System.out.println("*****************");
-        System.out.println("* Ja delam: " + delaZvuk() + " *");
-        System.out.println("* Moje rychlost: " + rychlostBehu + " *");
-        System.out.println("*****************");
+@ToString
+public class Zvire {
+    protected boolean jeZiva;
+
+    @Getter
+    private String jmeno;
+
+    public Zvire(String jmeno) {
+        this.jmeno = jmeno;
+        this.jeZiva = true;
+    }
+
+    public static void main(String[] args) throws JsonProcessingException {
+        Kocka k = new Kocka("Morek");
+
+        var mapper = new XmlMapper();
+        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        String out = mapper.writeValueAsString(k);
+        System.out.println(out);
     }
 }

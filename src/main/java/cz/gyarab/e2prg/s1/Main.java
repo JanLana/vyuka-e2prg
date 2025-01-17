@@ -4,7 +4,7 @@ package cz.gyarab.e2prg.s1;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Zvire z = new ClovekYvire();
+        ZvireOld z = new ClovekYvire();
         //Pes p = new Pes();
 
 
