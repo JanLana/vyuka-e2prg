@@ -10,7 +10,7 @@ public class Sito {
         for (int i = 2; i < arr.length; i++) {
             if (arr[i] == false) {
                 //System.out.println(i);
-                soucet.(new BigInteger(i));
+                soucet.add(BigInteger.valueOf(i));
                 for (long j = i; j < arr.length; j += i) {
                     arr[(int)j] = true;
                 }
