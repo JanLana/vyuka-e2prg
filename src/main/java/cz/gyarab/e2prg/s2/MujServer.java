@@ -27,7 +27,7 @@ public class MujServer {
                     writer.println("dekuju");
                 }
 
-                socket.close();
+                //socket.close();
             } catch (Exception e) {
                 System.out.println("nekdo me trapi!!!");
             }
