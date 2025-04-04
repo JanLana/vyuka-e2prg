@@ -23,7 +23,7 @@ public class Zvire {
     public static void main(String[] args) throws JsonProcessingException {
         Kocka k = new Kocka("Morek");
 
-        var mapper = new XmlMapper();
+        XmlMapper mapper = new XmlMapper();
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
