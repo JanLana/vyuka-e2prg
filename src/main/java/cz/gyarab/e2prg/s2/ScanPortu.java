@@ -15,7 +15,7 @@ public class ScanPortu {
 
         for(;;) {
             Socket socket = sc.accept();
-            var in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
             zpracujPozadavek(in, out);
