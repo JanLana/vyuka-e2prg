@@ -1,8 +1,14 @@
 package cz.gyarab.e2prg.s1;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class SpojovySeznam {
     Prvek zacatek = null;
     Prvek posledni = null;
+
+    public SpojovySeznam() {
+        this.zacatek = new Prvek(0);
+    }
 
     public Prvek najdiPosledniPrvek() {
         Prvek p = zacatek;
@@ -34,7 +40,7 @@ public class SpojovySeznam {
     public void vypisSeznam() {
         Prvek p = zacatek;
         for(;;) {
-            System.out.println(p.hodnota);
+            System.out.print(p.hodnota + " ");
             if (p.dalsi == null) {
                 return;
             } else {
@@ -43,19 +49,44 @@ public class SpojovySeznam {
         }
     }
 
+    public void vyhazejSude() {
+        Prvek aktualni = zacatek;
+
+        for(;;) {
+            if (aktualni.dalsi.hodnota % 2 == 0) {
+                aktualni.dalsi = aktualni.dalsi.dalsi;
+            } else {
+                aktualni = aktualni.dalsi;
+            }
+
+            if (aktualni.dalsi == null) {
+                return;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         SpojovySeznam seznam = new SpojovySeznam();
+        seznam.vypisSeznam();
 
         long start = System.currentTimeMillis();
-        for (int i = 0; i < 100_000; i++) {
-            seznam.pridejDoSeznamu(i);
+        for (int i = 0; i < 5; i++) {
+            seznam.pridejDoSeznamu(ThreadLocalRandom.current().nextInt());
         }
         long end = System.currentTimeMillis();
         end -= start;
 
-        System.out.println(end + " ms");
+        seznam.vypisSeznam();
+
+        System.out.println("------");
+
+        seznam.vyhazejSude();
+
+        seznam.vypisSeznam();
 
 
-        //seznam.vypisSeznam();
+        //System.out.println(end + " ms");
+
+
     }
 }
