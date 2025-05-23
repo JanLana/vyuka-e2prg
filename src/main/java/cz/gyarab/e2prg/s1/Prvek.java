@@ -8,6 +8,4 @@ public class Prvek {
         this.hodnota = hodnota;
         this.dalsi = dalsi;
     }
-
-
 }

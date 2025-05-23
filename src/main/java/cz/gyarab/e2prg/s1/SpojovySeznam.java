@@ -7,7 +7,7 @@ public class SpojovySeznam {
     Prvek posledni = null;
 
     public SpojovySeznam() {
-        this.zacatek = new Prvek(0);
+        this.zacatek = new Prvek(0, null);
     }
 
     public Prvek najdiPosledniPrvek() {
